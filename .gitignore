@@ -9,3 +9,6 @@ build/
 dist/
 .venv/
 venv/
+
+data/
+.claude/

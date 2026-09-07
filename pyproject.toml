@@ -16,7 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 orbits = [
-    "lisaorbits>=3.0",
+    "lisaorbits>=2.1,<3.0",
 ]
 test = [
     "pytest>=8",

@@ -13,5 +13,5 @@ dependencies:
   - pip:
       - "jax[cpu]>=0.10"
       - "pytdi>=2.1"
-      - "lisaorbits>=3.0"
+      - "lisaorbits>=2.1,<3.0"
       - "-e ."
