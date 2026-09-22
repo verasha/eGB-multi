@@ -47,8 +47,10 @@ from .pytdi_bridge import (
     aet_from_xyz,
     eccentric_aet_jax,
     eccentric_xyz_jax,
+    prebuild_michelson,
     pytdi_data_from_links,
     xyz_from_links,
+    xyz_from_prebuilt,
 )
 
 __all__ = [
@@ -93,10 +95,12 @@ __all__ = [
     "peters_mathews_derivatives",
     "peters_mathews_evolution",
     "peters_mathews_source_mismatch",
+    "prebuild_michelson",
     "precompute_jax_link_geometry",
     "pytdi_data_from_links",
     "recommended_eccentric_order",
     "select_peters_mathews_evolution_mode",
     "state_from_lisaorbits",
     "xyz_from_links",
+    "xyz_from_prebuilt",
 ]
