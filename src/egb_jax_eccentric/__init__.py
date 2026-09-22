@@ -49,6 +49,7 @@ from .pytdi_bridge import (
     eccentric_xyz_jax,
     prebuild_michelson,
     pytdi_data_from_links,
+    prepare_xyz_from_links,
     xyz_from_links,
     xyz_from_prebuilt,
 )
@@ -98,6 +99,7 @@ __all__ = [
     "prebuild_michelson",
     "precompute_jax_link_geometry",
     "pytdi_data_from_links",
+    "prepare_xyz_from_links",
     "recommended_eccentric_order",
     "select_peters_mathews_evolution_mode",
     "state_from_lisaorbits",
