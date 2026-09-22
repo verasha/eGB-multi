@@ -1,0 +1,25 @@
+Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 201, in _version_check
+    version = get_version()
+              ^^^^^^^^^^^^^
+RuntimeError: jaxlib/cuda/versions_helpers.cc:85: operation cusparseGetProperty(MAJOR_VERSION, &major) failed: The cuSPARSE library was not found.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 508, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 370, in initialize
+    _check_cuda_versions(raise_on_first_error = True)
+  File "/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 266, in _check_cuda_versions
+    _version_check("cuSPARSE", cuda_versions.cusparse_get_version,
+  File "/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 205, in _version_check
+    raise RuntimeError(err_msg) from e
+RuntimeError: Unable to load cuSPARSE. Is it installed?
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/lisaconstants/compat/astropy.py:252: UserWarning: The following constants differ between lisaconstants and the version of astropy you have installed: VACUUM_PERMEABILITY. The recommended version of astropy is 7.2.0. Use a different one at your own risks. 
+You may also open an issue at https://gitlab.esa.int/lisa-sgs/commons/lisa-constants to warn that lisaconstants is not compatible with astropy v8.0.1
+  warnings.warn(
+/scratch/e1498138/anaconda3/envs/egb-multi/lib/python3.11/site-packages/pytdi/dsp.py:72: ComplexWarning: Casting complex values to real discards the imaginary part
+  return data.astype(float)

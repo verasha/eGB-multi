@@ -1,0 +1,26 @@
+jax: cpu [CpuDevice(id=0)]
+injection: /scratch/e1498138/eGB-multi/sangria_hmcnc_10x.h5
+N_PARTICLES=200 NUM_MCMC=5 TARGET_ESS=0.5
+samples: 518400  dt: 5.0  injection_scale: 10.0
+source_params: {
+  "f0_hz": 0.00622027623506547,
+  "eccentricity": 0,
+  "m1_solar": 0.55,
+  "m2_solar": 0.27,
+  "distance_m": 2.3142581861185254e+20,
+  "beta": -0.08210049881437637,
+  "lambda_": 2.102052384246663,
+  "psi": 0.0,
+  "inclination": 0.6632251157578453,
+  "phi0": 0.0,
+  "fdot": 0.0
+}
+
+logL at truth: 11816.371218175596 -> implied SNR 153.7
+
+starting SMC, checkpointing to /scratch/e1498138/eGB-multi/sangria_hmcnc_10x_smc.npz
+    ... 100 calls, 166s, 1.66 s/call
+    ... 200 calls, 330s, 1.65 s/call
+    ... 300 calls, 506s, 1.69 s/call
+    ... 400 calls, 683s, 1.71 s/call
+    ... 500 calls, 862s, 1.72 s/call
