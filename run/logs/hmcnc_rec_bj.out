@@ -1,0 +1,55 @@
+samples: 518400 dt: 5.0
+injection_scale: 10.0
+source_params: {
+  "f0_hz": 0.00622027623506547,
+  "eccentricity": 0,
+  "m1_solar": 0.55,
+  "m2_solar": 0.27,
+  "distance_m": 2.3142581861185254e+20,
+  "beta": -0.08210049881437637,
+  "lambda_": 2.102052384246663,
+  "psi": 0.0,
+  "inclination": 0.6632251157578453,
+  "phi0": 0.0,
+  "fdot": 0.0
+}
+noise AET max abs: {'A': 4.3858327704197363e-20, 'E': 4.459085751762551e-20, 'T': 5.263813956477628e-20}
+signal AET max abs: {'A': 2.626181161966582e-23, 'E': 1.2889563994147257e-23, 'T': 6.743698074007531e-26}
+log likelihood at true params: 11816.371218175596
+one call takes: 1.4580819606781006 seconds
+log likelihood at arbitrary params: -160066.9370789745
+second call takes: 0.9393830299377441 seconds
+log likelihood at arbitrary params: 9066.732667287724
+ call takes: 0.9169635772705078 seconds
+_loglike_np at truth: 11816.371218175596 (expect ~11800)
+stage 1 | T 0.0000 | logZ -0.8 | calls 352 | 356s | 1.01 s/call | mean e=0.4223 m1=0.8117 m2=0.7781
+stage 2 | T 0.0000 | logZ -0.8 | calls 712 | 717s | 1.01 s/call | mean e=0.3370 m1=0.5782 m2=0.4336
+stage 3 | T 0.0002 | logZ 0.1 | calls 1072 | 1079s | 1.01 s/call | mean e=0.3017 m1=0.5543 m2=0.3964
+stage 4 | T 0.0004 | logZ 1.9 | calls 1425 | 1434s | 1.01 s/call | mean e=0.2037 m1=0.4695 m2=0.3870
+stage 5 | T 0.0009 | logZ 6.5 | calls 1783 | 1794s | 1.01 s/call | mean e=0.1405 m1=0.4894 m2=0.3988
+stage 6 | T 0.0017 | logZ 14.7 | calls 2125 | 2136s | 1.01 s/call | mean e=0.0829 m1=0.5437 m2=0.4087
+stage 7 | T 0.0038 | logZ 39.0 | calls 2456 | 2469s | 1.01 s/call | mean e=0.0551 m1=0.5926 m2=0.4082
+stage 8 | T 0.0073 | logZ 80.0 | calls 2752 | 2764s | 1.00 s/call | mean e=0.0288 m1=0.7114 m2=0.3748
+stage 9 | T 0.0182 | logZ 207.8 | calls 3042 | 3050s | 1.00 s/call | mean e=0.0221 m1=0.7879 m2=0.3135
+stage 10 | T 0.0391 | logZ 454.6 | calls 3324 | 3328s | 1.00 s/call | mean e=0.0162 m1=0.8565 m2=0.2881
+stage 11 | T 0.0785 | logZ 918.4 | calls 3596 | 3595s | 1.00 s/call | mean e=0.0114 m1=0.8287 m2=0.3193
+stage 12 | T 0.1578 | logZ 1855.6 | calls 3866 | 3861s | 1.00 s/call | mean e=0.0077 m1=0.7247 m2=0.3758
+stage 13 | T 0.3345 | logZ 3942.8 | calls 4125 | 4114s | 1.00 s/call | mean e=0.0053 m1=0.5569 m2=0.4339
+stage 14 | T 0.7719 | logZ 9110.1 | calls 4389 | 4373s | 1.00 s/call | mean e=0.0037 m1=0.4977 m2=0.4208
+stage 15 | T 1.0000 | logZ 11805.3 | calls 4652 | 4631s | 1.00 s/call | mean e=0.0031 m1=0.6984 m2=0.3367
+
+==============================================================
+truth         : [0.   0.55 0.27]
+posterior mean: [0.00312899 0.69840295 0.33667473]
+posterior std : [0.00089386 0.45744013 0.16414626]
+e 90% upper limit: 0.00374
+e 95% upper limit: 0.00374
+logZ = 11805.27
+
+--- walltime sizing ---
+pilot: 15 stages, 4652 calls, 77.2 min (1.00 s/call, 310 calls/stage)
+  200 particles, 15 stages -> 18608 calls, 5.1 h
+  200 particles, 19 stages -> 23570 calls, 6.5 h
+
+suggested PBS walltime (1.5x margin): 10:00:00
+Job completed at Wed Sep 23 01:31:32 AM +08 2026

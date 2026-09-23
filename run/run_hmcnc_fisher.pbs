@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -q auto_free
+#PBS -o logs/hmcnc_fisher.out
+#PBS -e logs/hmcnc_fisher.err
+#PBS -N hm_fisher
+#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
+
+set -e
+
+cd $PBS_O_WORKDIR
+mkdir -p logs
+
+module load cuda12.4/toolkit/12.4.1
+source /scratch/e1498138/anaconda3/bin/activate egb-multi
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+
+# Step-size convergence first -- the scan is meaningless if EPS is off.
+echo "=============== STEP-SIZE CHECK ==============="
+STEP_CHECK=1 python /home/svu/e1498138/localgit/eGB-multi/run/hmcnc_fisher.py
+
+echo
+echo "=============== ECCENTRICITY SCAN ==============="
+python /home/svu/e1498138/localgit/eGB-multi/run/hmcnc_fisher.py
+
+echo "Job completed at $(date)"

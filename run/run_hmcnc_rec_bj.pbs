@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -q auto_free
+#PBS -o logs/hmcnc_rec_bj.out
+#PBS -e logs/hmcnc_rec_bj.err
+#PBS -N hmcnc_rec_bj
+#PBS -l walltime=08:00:00
+#PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
+
+set -e   # a python crash should fail the job, not pass silently
+
+cd $PBS_O_WORKDIR;
+mkdir -p logs
+
+module load cuda12.4/toolkit/12.4.1
+source /scratch/e1498138/anaconda3/bin/activate egb-multi
+
+# don't let JAX preallocate most of the GPU up front
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+
+python /home/svu/e1498138/localgit/eGB-multi/run/hmcnc_rec_bj.py
+
+echo "Job completed at $(date)"
