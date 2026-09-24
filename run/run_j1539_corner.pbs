@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -q auto_free
+#PBS -o /home/svu/e1498138/localgit/eGB-multi/run/logs/j1539_corner.out
+#PBS -e /home/svu/e1498138/localgit/eGB-multi/run/logs/j1539_corner.err
+#PBS -N j1539_corner
+#PBS -l walltime=01:00:00
+#PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=16gb
+
+set -e
+
+cd $PBS_O_WORKDIR
+mkdir -p /home/svu/e1498138/localgit/eGB-multi/run/logs /home/svu/e1498138/localgit/eGB-multi/run/plots
+
+source /scratch/e1498138/anaconda3/bin/activate egb-multi
+
+for t in e00 e01 e03; do
+    echo "================ $t ================"
+    python /home/svu/e1498138/localgit/eGB-multi/run/plot_mcmc_corner.py /scratch/e1498138/eGB-multi/j1539_mcmc_$t.npz
+done
+
+echo "Job completed at $(date)"

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import corner
 
+import os
 import sys
 NPZ = sys.argv[1] if len(sys.argv) > 1 else "/scratch/e1498138/eGB-multi/hmcnc_mcmc_min.npz"
 OUT = "/home/svu/e1498138/localgit/eGB-multi/run/plots/" + __import__("os").path.basename(NPZ).replace(".npz", "_corner.png")
@@ -38,8 +39,19 @@ for i, n in enumerate(["e ", "m1", "m2"]):
     print(f"  {n}: ~{tau} steps  -> ~{len(post) // max(tau, 1)} effective samples")
 
 # --- corner
+# Auto-scaling to the samples can put `truths` outside the axes, which drops the
+# truth line with no warning -- exactly what hid the J1539 mass offset. Widen
+# each axis to contain both the posterior and the truth.
+rng = []
+for i in range(post.shape[1]):
+    lo = min(post[:, i].min(), truth[i])
+    hi = max(post[:, i].max(), truth[i])
+    pad = 0.05 * (hi - lo) if hi > lo else 1e-6
+    rng.append((lo - pad, hi + pad))
+
 fig = corner.corner(
     post,
+    range=rng,
     labels=NAMES,
     truths=truth,
     truth_color="#d1582a",
@@ -55,11 +67,11 @@ fig = corner.corner(
     levels=(0.68, 0.95),
     smooth=0.8,
 )
+name = os.path.basename(NPZ).replace(".npz", "")
 fig.suptitle(
-    f"HM Cnc RWM posterior - {len(post)} samples",
+    f"{name} - RWM posterior, {len(post)} samples",
     fontsize=13, y=1.02)
 
-import os
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 fig.savefig(OUT, dpi=160, bbox_inches="tight", facecolor="white")
 print("\nwrote", OUT)

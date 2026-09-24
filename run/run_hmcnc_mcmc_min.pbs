@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q auto_free
-#PBS -o logs/hmcnc_mcmc_min.out
-#PBS -e logs/hmcnc_mcmc_min.err
+#PBS -o /home/svu/e1498138/localgit/eGB-multi/run/logs/hmcnc_mcmc_min.out
+#PBS -e /home/svu/e1498138/localgit/eGB-multi/run/logs/hmcnc_mcmc_min.err
 #PBS -N hmcnc_mcmc_min
 #PBS -l walltime=06:00:00
 #PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
@@ -9,7 +9,7 @@
 set -e
 
 cd $PBS_O_WORKDIR;
-mkdir -p logs
+mkdir -p /home/svu/e1498138/localgit/eGB-multi/run/logs
 
 module load cuda12.4/toolkit/12.4.1
 source /scratch/e1498138/anaconda3/bin/activate egb-multi

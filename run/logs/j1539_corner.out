@@ -1,0 +1,98 @@
+================ e00 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 4684/12000
+
+split-half comparison:
+  e : 1st 0.00146 +/- 0.00100 | 2nd 0.00126 +/- 0.00084
+  m1: 1st 0.58293 +/- 0.03776 | 2nd 0.61161 +/- 0.03420
+  m2: 1st 0.21994 +/- 0.01130 | 2nd 0.21118 +/- 0.00966
+  e 90% UL: 1st 0.00287 | 2nd 0.00239
+
+autocorrelation length (ACF < 0.1):
+  e : ~56 steps  -> ~214 effective samples
+  m1: ~1618 steps  -> ~7 effective samples
+  m2: ~1643 steps  -> ~7 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e00_corner.png
+================ e01 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 5160/12000
+
+split-half comparison:
+  e : 1st 0.10049 +/- 0.00144 | 2nd 0.10035 +/- 0.00122
+  m1: 1st 0.55021 +/- 0.02267 | 2nd 0.53831 +/- 0.01449
+  m2: 1st 0.23048 +/- 0.00823 | 2nd 0.23463 +/- 0.00550
+  e 90% UL: 1st 0.10226 | 2nd 0.10197
+
+autocorrelation length (ACF < 0.1):
+  e : ~71 steps  -> ~169 effective samples
+  m1: ~1024 steps  -> ~11 effective samples
+  m2: ~895 steps  -> ~13 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e01_corner.png
+================ e03 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 4330/12000
+
+split-half comparison:
+  e : 1st 0.29944 +/- 0.00130 | 2nd 0.29922 +/- 0.00122
+  m1: 1st 0.59465 +/- 0.00497 | 2nd 0.59495 +/- 0.00509
+  m2: 1st 0.21546 +/- 0.00183 | 2nd 0.21542 +/- 0.00183
+  e 90% UL: 1st 0.30105 | 2nd 0.30074
+
+autocorrelation length (ACF < 0.1):
+  e : ~129 steps  -> ~93 effective samples
+  m1: ~86 steps  -> ~139 effective samples
+  m2: ~83 steps  -> ~144 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e03_corner.png
+Job completed at Thu Sep 24 11:41:15 AM +08 2026
+================ e00 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 4684/12000
+
+split-half comparison:
+  e : 1st 0.00146 +/- 0.00100 | 2nd 0.00126 +/- 0.00084
+  m1: 1st 0.58293 +/- 0.03776 | 2nd 0.61161 +/- 0.03420
+  m2: 1st 0.21994 +/- 0.01130 | 2nd 0.21118 +/- 0.00966
+  e 90% UL: 1st 0.00287 | 2nd 0.00239
+
+autocorrelation length (ACF < 0.1):
+  e : ~56 steps  -> ~214 effective samples
+  m1: ~1618 steps  -> ~7 effective samples
+  m2: ~1643 steps  -> ~7 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e00_corner.png
+================ e01 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 5160/12000
+
+split-half comparison:
+  e : 1st 0.10049 +/- 0.00144 | 2nd 0.10035 +/- 0.00122
+  m1: 1st 0.55021 +/- 0.02267 | 2nd 0.53831 +/- 0.01449
+  m2: 1st 0.23048 +/- 0.00823 | 2nd 0.23463 +/- 0.00550
+  e 90% UL: 1st 0.10226 | 2nd 0.10197
+
+autocorrelation length (ACF < 0.1):
+  e : ~71 steps  -> ~169 effective samples
+  m1: ~1024 steps  -> ~11 effective samples
+  m2: ~895 steps  -> ~13 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e01_corner.png
+================ e03 ================
+15000 steps, discarding 3000 as burn-in -> 12000 samples
+unique states: 4330/12000
+
+split-half comparison:
+  e : 1st 0.29944 +/- 0.00130 | 2nd 0.29922 +/- 0.00122
+  m1: 1st 0.59465 +/- 0.00497 | 2nd 0.59495 +/- 0.00509
+  m2: 1st 0.21546 +/- 0.00183 | 2nd 0.21542 +/- 0.00183
+  e 90% UL: 1st 0.30105 | 2nd 0.30074
+
+autocorrelation length (ACF < 0.1):
+  e : ~129 steps  -> ~93 effective samples
+  m1: ~86 steps  -> ~139 effective samples
+  m2: ~83 steps  -> ~144 effective samples
+
+wrote /home/svu/e1498138/localgit/eGB-multi/run/plots/j1539_mcmc_e03_corner.png
+Job completed at Thu Sep 24 11:48:11 AM +08 2026

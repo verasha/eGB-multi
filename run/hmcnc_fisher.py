@@ -58,12 +58,19 @@ EPS = np.array([float(os.environ.get("EPS_E", 2e-4)),
 print(f"INJ={INJ}\nEPS={EPS}", flush=True)
 
 # --- data: time grid, noise realisation (PSD only), fixed source parameters
+DURATION_DAYS = float(os.environ.get("DURATION_DAYS", 0))   # 0 = use whole file
+SCALE_OVERRIDE = float(os.environ.get("SCALE_OVERRIDE", 0))  # 0 = use file's scale
+
 with h5py.File(INJ, "r") as f:
-    t = f["t"][:]
-    noise = aet_from_xyz({c: f["noise"][c][:] for c in XYZ})
     dt = float(f.attrs["segment_dt_s"])
+    n = f["t"].shape[0]
+    if DURATION_DAYS > 0:
+        n = min(n, int(round(DURATION_DAYS * 86400.0 / dt)))
+    t = f["t"][:n]
+    noise = aet_from_xyz({c: f["noise"][c][:n] for c in XYZ})
     sp = json.loads(f.attrs["egb_source_params_json"])
-    scale = float(f.attrs["injection_scale"])
+    scale = SCALE_OVERRIDE if SCALE_OVERRIDE > 0 else float(f.attrs["injection_scale"])
+print(f"N={n}  T={n*dt/86400:.2f}d  scale={scale}", flush=True)
 
 state = state_from_lisaorbits(default_lisaorbits("equal"), t)
 geom = precompute_jax_link_geometry(state)
@@ -174,8 +181,9 @@ np.savez(OUT, scan=arr, ecc=arr[:, 0], snr=arr[:, 1], sigma=arr[:, 2:5],
 print("\nsaved:", OUT)
 
 # --- cross-check against the one MCMC chain that is not prior-limited
-chain_path = f"{SCRATCH}/hmcnc_mcmc_e03.npz"
-if os.path.exists(chain_path):
+# Must name a chain for THIS system -- comparing across systems is meaningless.
+chain_path = os.environ.get("CHECK_CHAIN", "")
+if chain_path and os.path.exists(chain_path):
     c = np.load(chain_path)["chain"]
     c = c[len(c) // 5:]
     k = int(np.argmin(np.abs(arr[:, 0] - 0.3)))
